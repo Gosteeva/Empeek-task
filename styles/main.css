@@ -3,6 +3,7 @@
 html {
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -47,8 +48,8 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  width: 30%;
-  height: 100%;
+  width: 271px;
+  height: auto;
   min-height: 100%;
   max-width: 271px;
   background: #2B2F3E;
@@ -74,10 +75,6 @@ a {
 
 .active {
   background-color: #FF2F5A;
-}
-
-.panel{
-  width: 70%;
 }
 
 .items {
@@ -201,9 +198,9 @@ a {
 
 .comments-to-item {
   position: absolute;
-  left: 510px;
+  left: 520px;
   top: -30px;
-  width: 500px;
+  width: 480px;
   min-height: 450px;
   padding: 22px 14px 22px 25px;
   margin: 32px 30px;
@@ -252,10 +249,10 @@ a {
 }
 
 .input-comment-group input {
-  position: absolute;
   height: 70px;
   width: 335px;
   border: 1px solid #ccc;
   border-radius: 2px;
+  resize: none;
   margin-left: 12px;
 }

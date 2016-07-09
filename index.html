@@ -37,7 +37,16 @@
                   <!-- Comments list -->
                   <div class="clearfix">
                     <ul ng-repeat="comment in item.comments" class="comment">
-                      <list-comment></list-comment>
+                      <li >
+                        <div class="comment-photo">
+                          <!-- {{comment.color}} -->
+                        </div>
+                        <div class="comment-text">
+                          <p>
+                            {{comment.body}}
+                          </p>
+                        </div>
+                      </li>
                     </ul>
                   </div>
                   <!-- Adding Comments -->
@@ -48,6 +57,7 @@
                         </select> -->
                       </div>
                       <input ng-model="commentCtrl.comment.body" class="form-control"></input>
+                      <button type="submit"></button>
                     </div>
                   </form>
                 </div>

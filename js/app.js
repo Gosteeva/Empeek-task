@@ -26,7 +26,22 @@
     this.selectedListTab = function (chklstTab){
       return hack.listtab === chklstTab;
     };
+
+    this.setColor = function(){
+      
+    };
+
   }]);
+
+  app.controller('CommentController', function(){
+    this.comment = '';
+    this.comment.color = '#ccc';
+
+    this.addComment = function(item){
+      item.comments.push(this.comment);
+      this.comment = '';
+    };
+  });
 
   app.controller('NavController', function(){
     this.tab = 1;

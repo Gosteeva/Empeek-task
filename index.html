@@ -30,23 +30,36 @@
               <div class="items-list" ng-class="{'active-item':$index == itemsCtrl.listtab-1}">
                 <list-items></list-items>
               </div>
+              <!-- Comments block -->
               <div ng-show="itemsCtrl.selectedListTab($index+1)">
                 <div class="comments-to-item">
                   <h2>Comments # {{itemsCtrl.listtab}}</h2>
-                  <div class="comment">
-                    <ul ng-repeat="comment in item.comments">
-                      <li>
-                        <!-- <div class="column"> -->
-                          <div class="comment-photo">
-                            {{comment.color}}
-                          </div>
-                        <!-- </div> -->
+                  <!-- Comments list -->
+                  <div class="clearfix">
+                    <ul ng-repeat="comment in item.comments" class="comment">
+                      <li >
+                        <div class="comment-photo">
+                          <!-- {{comment.color}} -->
+                        </div>
                         <div class="comment-text">
-                          {{comment.body}}
+                          <p>
+                            {{comment.body}}
+                          </p>
                         </div>
                       </li>
                     </ul>
                   </div>
+                  <!-- Adding Comments -->
+                  <form name="commentForm" ng-controller="CommentController as commentCtrl" ng-submit="commentCtrl.addComment(item)" novalidate>
+                    <div class="input-comment-group">
+                      <div class="comment-photo">
+                        <!-- <select ng-model="commentCtrl.comment.color" style="display:none">
+                        </select> -->
+                      </div>
+                      <input ng-model="commentCtrl.comment.body" class="form-control"></input>
+                      <button type="submit"></button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>

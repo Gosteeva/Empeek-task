@@ -1,0 +1,9 @@
+<li>
+  <a href ng-click="itemsCtrl.setListTab($index)">
+    {{item.element}}
+    <span>0</span>
+  </a>
+  <form class="deleteItem" ng-submit="itemsCtrl.deleteItem(item)" novalidate>
+    <button class="btn btn-delete" type="submit" > Delete</button>
+  </form>
+</li>

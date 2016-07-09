@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="task">
+  <head>
+    <meta charset="utf-8">
+    <title>EmpeekTask</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/styles/main.css">
+  </head>
+  <body>
+    <div class="" ng-controller="NavController as navCtrl">
+      <nav>
+        <div class="nav">
+        <h2>Main</h2>
+        <side-nav></side-nav>
+        </div>
+      </nav>
+      <div class="panel" ng-show="navCtrl.isSelected(1)">
+        <div class="items" ng-controller="ItemsController as itemsCtrl">
+          <h2>Items</h2>
+          <!-- Adding new elements -->
+          <form name="addingItemForm" ng-submit=" addingItemForm.$valid && itemsCtrl.addItem()" novalidate>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Type name here..." ng-model="itemsCtrl.element" required>
+              <button class="btn btn-default" type="submit" >Add new</button>
+            </div>
+          </form>
+          <!-- List of items -->
+          <div class="clearfix">
+            <div  ng-repeat="item in itemsCtrl.items">
+              <div class="items-list" ng-class="{'active-item':$index == itemsCtrl.listtab-1}">
+                <list-items></list-items>
+              </div>
+              <div ng-show="itemsCtrl.selectedListTab($index+1)">
+                <div class="comments-to-item">
+                  <h2>Comments # {{itemsCtrl.listtab}}</h2>
+                  <div class="comment">
+                    <ul ng-repeat="comment in item.comments">
+                      <li>
+                        <!-- <div class="column"> -->
+                          <div class="comment-photo">
+                            {{comment.color}}
+                          </div>
+                        <!-- </div> -->
+                        <div class="comment-text">
+                          {{comment.body}}
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/js/angular.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/directives.js"></script>
+  </body>
+</html>
